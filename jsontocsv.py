@@ -5,7 +5,7 @@ import os
 
 def json_2_csv(json_filename):
     if not os.path.exists(json_filename):
-        print(f"Файл {json_filename} не найден.")
+        print(f"Файл {json_filename} не найден.(Файл должен располагаться в папке с этой программой)")
         return
     csv_filename = os.path.splitext(json_filename)[0] + '.csv'
     with open(json_filename, 'r', encoding='utf-8') as json_file:
@@ -22,10 +22,10 @@ def json_2_csv(json_filename):
 
 
 if __name__ == "__main__":
-    command = input("Введите команду вида: 'json2csv.py файл.json': \n")
+    command = input("Введите команду вида: 'jsontocsv.py (название файла).json': \n")
     parts = command.split()
     if len(parts) != 2 or parts[0] != "jsontocsv.py":
-        print("Введенные данные неправильного формата!")
+        print("Введены данные неправильного формата!")
     else:
         json_filename = parts[1]
         json_2_csv(json_filename)
